@@ -10,7 +10,7 @@ public class PlanetMovement : MonoBehaviour {
 	public float ZOrbitAngle = 0f;
 	public float EclipticToOrbitAngle = 0f;
 	public float Nu;
-	public float Speed = 100f;
+	public float Speed = 10f;
 	//public int vertexCount = 10;
 
 	float t = 0;
@@ -46,7 +46,7 @@ public class PlanetMovement : MonoBehaviour {
 	void changeNu (ref float Nu, float speed){
 		if(t >= 1)
 			t = 0;
-		t = Time.deltaTime / speed;
+		t += Time.deltaTime / speed;
 		Nu = Mathf.Lerp(0,360, t);
 	}
 
