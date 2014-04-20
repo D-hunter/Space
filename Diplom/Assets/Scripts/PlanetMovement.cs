@@ -46,7 +46,7 @@ public class PlanetMovement : MonoBehaviour {
 	void changeNu (ref float Nu, float speed){
 		if(t >= 1)
 			t = 0;
-		t += Time.deltaTime / speed;
+		t = Time.deltaTime / speed;
 		Nu = Mathf.Lerp(0,360, t);
 	}
 

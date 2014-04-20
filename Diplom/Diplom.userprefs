@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlanetMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlanetMovement.cs" Line="35" Column="102" />
+      <File FileName="Assets\Scripts\PlanetMovement.cs" Line="44" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
