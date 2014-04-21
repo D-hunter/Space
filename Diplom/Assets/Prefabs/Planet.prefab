@@ -70,12 +70,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartAngle: 0
+  RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
+  declX: 0
+  declZ: 0
+  declY: 0
   Dist: 10
   Eks: .0170000009
-  DeclAngle: .126499996
   Period: 1
-  DeltaTime: .100000001
+  DeltaTime: .00999999978
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
