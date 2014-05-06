@@ -114,7 +114,7 @@ MonoBehaviour:
   Dist: 21.2000008
   Eks: .0930000022
   Period: 1.88
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &204964789
 Renderer:
   m_ObjectHideFlags: 0
@@ -244,6 +244,7 @@ GameObject:
   - 124: {fileID: 352973535}
   - 81: {fileID: 352973534}
   - 114: {fileID: 352973539}
+  - 114: {fileID: 352973540}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -329,6 +330,21 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
+--- !u!114 &352973540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352973533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97e1c56b194be14ab28e32360e94839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipAcceleration: .00999999978
+  RadiusVector: {x: 0, y: 0, z: 0}
+  StartAngle: 0
+  DeltaTime: .0500000007
 --- !u!1 &589298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +385,7 @@ MonoBehaviour:
   Dist: 156
   Eks: .00899999961
   Period: 163.699997
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &589298954
 Renderer:
   m_ObjectHideFlags: 0
@@ -436,6 +452,7 @@ GameObject:
   - 136: {fileID: 778275367}
   - 23: {fileID: 778275366}
   - 114: {fileID: 778275365}
+  - 114: {fileID: 778275370}
   m_Layer: 0
   m_Name: StarDestroyer
   m_TagString: Untagged
@@ -449,7 +466,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778275364}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2485ecbef9dfcf54f9cd26b8ef0acba0, type: 3}
   m_Name: 
@@ -509,6 +526,21 @@ Transform:
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &778275370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 778275364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97e1c56b194be14ab28e32360e94839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipAcceleration: .00999999978
+  RadiusVector: {x: 0, y: 0, z: 0}
+  StartAngle: 0
+  DeltaTime: .0500000007
 --- !u!1001 &848590582
 Prefab:
   m_ObjectHideFlags: 0
@@ -629,7 +661,7 @@ MonoBehaviour:
   Dist: 32
   Eks: .0480000004
   Period: 11.8999996
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &850201693
 Renderer:
   m_ObjectHideFlags: 0
@@ -936,7 +968,7 @@ MonoBehaviour:
   Dist: 16
   Eks: .0170000009
   Period: 1
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &1025082019
 Renderer:
   m_ObjectHideFlags: 0
@@ -1031,7 +1063,7 @@ MonoBehaviour:
   Dist: 53.4500008
   Eks: .0540000014
   Period: 29.3999996
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &1031927681
 Renderer:
   m_ObjectHideFlags: 0
@@ -1126,7 +1158,7 @@ MonoBehaviour:
   Dist: 102.099998
   Eks: .0469999984
   Period: 83.6999969
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &1066707687
 Renderer:
   m_ObjectHideFlags: 0
@@ -1353,7 +1385,7 @@ MonoBehaviour:
   Dist: 9.80000019
   Eks: .206
   Period: .240999997
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &1355091054
 Renderer:
   m_ObjectHideFlags: 0
@@ -1528,7 +1560,7 @@ MonoBehaviour:
   Dist: 13.2299995
   Eks: .00700000022
   Period: .61500001
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!23 &1445797675
 Renderer:
   m_ObjectHideFlags: 0
