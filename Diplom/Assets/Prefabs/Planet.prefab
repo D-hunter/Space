@@ -78,7 +78,7 @@ MonoBehaviour:
   Dist: 10
   Eks: .0170000009
   Period: 1
-  DeltaTime: .00100000005
+  DeltaTime: .00999999978
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

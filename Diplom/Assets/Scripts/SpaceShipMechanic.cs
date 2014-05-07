@@ -8,12 +8,13 @@ public class SpaceShipMechanic : MonoBehaviour {
 	private GameObject StarDestoyer;
 	private GameObject StartPlanet;
 	private GameObject DestPlanet;
+	public float ORLVal;
 
-	public float ShipAcceleration = 0.01f;		// AO per year
+	public float ShipReAcceleration;			// Reverse acceleration more - slower
 	public Vector3 RadiusVector = new Vector3 ();
 
 	public float StartAngle = 0.0f;
-	public float DeltaTime = 0.05f;
+	public float DeltaTime = 0.05f;				// orbit speed
 
 	private bool ShipArrived = false;
 	private bool ShipStarted = false;
@@ -46,17 +47,52 @@ public class SpaceShipMechanic : MonoBehaviour {
 			OrbitRotation(StartPlanet);
 			if (Input.GetKey(KeyCode.S)){
 				ShipStarted = true;
-				RadiusVector = new Vector3(6.7f, 6.7f, 6.7f);
+				//RadiusVector = new Vector3(6.7f, 6.7f, 6.7f);
 			}
 		}
 		if (ShipStarted && !ShipArrived) {
 			if (!RouteFound){
 				//calculate route
-				RouteFound = true;
+				float x = RadiusVector.x * Mathf.Sin (StartAngle+DeltaTime) 
+					+ StartPlanet.transform.position.x;
+				float z = RadiusVector.z * Mathf.Cos (StartAngle+DeltaTime) 
+					+ StartPlanet.transform.position.z;
+
+				Vector3 nextStep = new Vector3(x, 0, z).normalized;
+
+				Vector3 SpeedVector = new Vector3(nextStep.x - StarDestoyer.transform.position.x,
+				                                  nextStep.y - StarDestoyer.transform.position.y,
+				                                  nextStep.z - StarDestoyer.transform.position.z).normalized;
+
+				Vector3 CourseToPlanet = new Vector3(
+					DestPlanet.transform.position.x - StarDestoyer.transform.position.x,
+					DestPlanet.transform.position.y - StarDestoyer.transform.position.y,
+					DestPlanet.transform.position.z - StarDestoyer.transform.position.z).normalized;
+
+					float OrbitLandValue = Vector3.Dot(CourseToPlanet, SpeedVector);
+				ORLVal = OrbitLandValue;
+				OrbitRotation(StartPlanet);
+				if (OrbitLandValue < -0.96){
+					RouteFound = true;
+					RadiusVector = new Vector3(6.3f, 6.3f, 6.3f);
+				}
 			}
 			else {
-				//move to the planet && check arrived condition
-				//ShipArrived = true;
+				//move to the planet && check arrived conditionq
+					Vector3 MoveDirection = new Vector3(
+						DestPlanet.transform.position.x - StarDestoyer.transform.position.x,
+						DestPlanet.transform.position.y - StarDestoyer.transform.position.y,
+						DestPlanet.transform.position.z - StarDestoyer.transform.position.z).normalized;
+
+					Vector3 NewPosition = new Vector3(
+					StarDestoyer.transform.position.x + (MoveDirection.x / ShipReAcceleration)*Time.deltaTime,
+					StarDestoyer.transform.position.y + (MoveDirection.y / ShipReAcceleration)*Time.deltaTime,
+					StarDestoyer.transform.position.z + (MoveDirection.z / ShipReAcceleration)*Time.deltaTime);
+
+					StarDestoyer.transform.position = NewPosition;
+
+					if (Vector3.Distance(StarDestoyer.transform.position, DestPlanet.transform.position) < 6.3f)
+						ShipArrived = true;
 			}
 		}
 		if (ShipArrived) {
