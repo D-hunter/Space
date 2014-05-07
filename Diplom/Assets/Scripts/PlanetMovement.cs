@@ -2,6 +2,13 @@
 using System.Collections;
 
 public class PlanetMovement : MonoBehaviour {
+
+	//*******************************
+	//Planet charachteristics
+	//*******************************
+	public float Wheight;
+	public float Radius;
+	//*******************************
 	public float StartAngle = 0.0f;
 	public Vector3 RadiusVect;
 	public Vector3 RotCenterOffset;

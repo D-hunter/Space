@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -244,8 +246,8 @@ GameObject:
   - 124: {fileID: 352973535}
   - 81: {fileID: 352973534}
   - 114: {fileID: 352973539}
-  - 114: {fileID: 352973540}
   - 45: {fileID: 352973541}
+  - 114: {fileID: 352973542}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -331,22 +333,6 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
---- !u!114 &352973540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 352973533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97e1c56b194be14ab28e32360e94839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ORLVal: 0
-  ShipReAcceleration: .5
-  RadiusVector: {x: 0, y: 0, z: 0}
-  StartAngle: 0
-  DeltaTime: .0500000007
 --- !u!45 &352973541
 Skybox:
   m_ObjectHideFlags: 0
@@ -355,6 +341,21 @@ Skybox:
   m_GameObject: {fileID: 352973533}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: d2a829d3df5ff1943a858010ba711fab, type: 2}
+--- !u!114 &352973542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352973533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c066043e953981439f81d20de1be52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Acceleration: 0
+  StartAngle: 0
+  DeltaTime: .0199999996
+  RadiusVector: {x: 0, y: 0, z: 0}
 --- !u!1 &589298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -461,8 +464,6 @@ GameObject:
   - 33: {fileID: 778275368}
   - 136: {fileID: 778275367}
   - 23: {fileID: 778275366}
-  - 114: {fileID: 778275365}
-  - 114: {fileID: 778275370}
   m_Layer: 0
   m_Name: StarDestroyer
   m_TagString: Untagged
@@ -470,17 +471,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &778275365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778275364}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2485ecbef9dfcf54f9cd26b8ef0acba0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &778275366
 Renderer:
   m_ObjectHideFlags: 0
@@ -536,22 +526,6 @@ Transform:
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &778275370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 778275364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f97e1c56b194be14ab28e32360e94839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ORLVal: 0
-  ShipReAcceleration: 5
-  RadiusVector: {x: 0, y: 0, z: 0}
-  StartAngle: 0
-  DeltaTime: .0500000007
 --- !u!1001 &848590582
 Prefab:
   m_ObjectHideFlags: 0
@@ -663,6 +637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -970,6 +946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -1065,6 +1043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -1160,6 +1140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -1387,6 +1369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
@@ -1562,6 +1546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
