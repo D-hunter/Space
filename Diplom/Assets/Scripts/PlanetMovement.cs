@@ -18,6 +18,7 @@ public class PlanetMovement : MonoBehaviour {
 	void Start () {
 		RadiusVect = new Vector3 (GetSmallAxis (Eks, Dist), 0, GetLargeAxis (Eks, Dist));
 		RotCenterOffset = GetRotCenterOff (Eks, Dist);
+		this.transform.position = new Vector3 (0.0f, 0.0f, Dist);
 	}
 	
 	public float GetLargeAxis(float eks, float dist){

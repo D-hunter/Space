@@ -111,7 +111,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0322999991
-  Dist: 21.2000008
+  Dist: 43
   Eks: .0930000022
   Period: 1.88
   DeltaTime: .00999999978
@@ -194,9 +194,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .709999979
-  m_Range: 200
+  m_Color: {r: .970588207, g: .96607554, b: .82071799, a: 1}
+  m_Intensity: .75
+  m_Range: 1000
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -207,7 +207,7 @@ Light:
     m_Softness: 4
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
+  m_DrawHalo: 1
   m_ActuallyLightmapped: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0308999997
-  Dist: 156
+  Dist: 312
   Eks: .00899999961
   Period: 163.699997
   DeltaTime: .00999999978
@@ -601,7 +601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 32
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Eks
@@ -669,7 +669,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0228000004
-  Dist: 32
+  Dist: 64
   Eks: .0480000004
   Period: 11.8999996
   DeltaTime: .00999999978
@@ -764,7 +764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 102.099998
+      value: 204.100006
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: m_LocalScale.x
@@ -852,7 +852,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 16
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -908,7 +908,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 156
+      value: 312
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Eks
@@ -976,7 +976,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: 0
-  Dist: 16
+  Dist: 32
   Eks: .0170000009
   Period: 1
   DeltaTime: .00999999978
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0434999987
-  Dist: 53.4500008
+  Dist: 106.900002
   Eks: .0540000014
   Period: 29.3999996
   DeltaTime: .00999999978
@@ -1166,7 +1166,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0135000004
-  Dist: 102.099998
+  Dist: 204.100006
   Eks: .0469999984
   Period: 83.6999969
   DeltaTime: .00999999978
@@ -1317,7 +1317,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 9.80000019
+      value: 19.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: m_LocalScale.x
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .122100003
-  Dist: 9.80000019
+  Dist: 19.6000004
   Eks: .206
   Period: .240999997
   DeltaTime: .00999999978
@@ -1504,7 +1504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 53.4500008
+      value: 106.900002
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Eks
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   declX: 0
   declZ: 0
   declY: .0593000017
-  Dist: 13.2299995
+  Dist: 26.4599991
   Eks: .00700000022
   Period: .61500001
   DeltaTime: .00999999978
@@ -1637,8 +1637,8 @@ GameObject:
   - 33: {fileID: 1553579141}
   - 135: {fileID: 1553579140}
   - 23: {fileID: 1553579139}
-  - 123: {fileID: 1553579142}
   - 122: {fileID: 1553579143}
+  - 123: {fileID: 1553579142}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Sun
@@ -1705,12 +1705,12 @@ LensFlare:
   m_GameObject: {fileID: 1553579137}
   m_Enabled: 1
   m_Flare: {fileID: 12100000, guid: 09ebe82dbd1113c3d000dc0b8d76c639, type: 2}
-  m_Color: {r: .889705896, g: .727104485, b: .196258634, a: 0}
-  m_Brightness: .75999999
-  m_FadeSpeed: 3
+  m_Color: {r: .964705884, g: .670588255, b: .356862754, a: 0}
+  m_Brightness: .899999976
+  m_FadeSpeed: 1
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 6
   m_Directional: 0
 --- !u!122 &1553579143
 Halo:
@@ -1721,8 +1721,8 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4284723920
-  m_Size: 2
+    rgba: 4278677502
+  m_Size: 5
 --- !u!1001 &1588629017
 Prefab:
   m_ObjectHideFlags: 0
@@ -1772,7 +1772,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 21.2000008
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Eks
@@ -1856,7 +1856,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 8b6c2352583fdf14b93e8a865c82a6b5, type: 2}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Dist
-      value: 13.2299995
+      value: 26.4599991
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: Eks
