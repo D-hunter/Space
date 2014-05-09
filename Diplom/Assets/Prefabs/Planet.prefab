@@ -69,16 +69,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d077ed51dee5dba4aaf587264ba41f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Wheight: 0
+  Radius: 0
   StartAngle: 0
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
   declZ: 0
   declY: 0
-  Dist: 10
   Eks: .0170000009
   Period: 1
-  DeltaTime: .00999999978
+  DeltaTime: .00100000005
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -17,12 +17,12 @@ public class PlanetMovement : MonoBehaviour {
 	public float declZ = 0.0f;
 	public float declY = 0.0f;
 
-	public float Dist = 10.0f;
 	public float Eks = 0.017f;
 	public float Period = 1.0f;
 	public float DeltaTime = 0.001f;
 	
 	void Start () {
+		float Dist = this.transform.position.z;
 		RadiusVect = new Vector3 (GetSmallAxis (Eks, Dist), 0, GetLargeAxis (Eks, Dist));
 		RotCenterOffset = GetRotCenterOff (Eks, Dist);
 		this.transform.position = new Vector3 (0.0f, 0.0f, Dist);
