@@ -422,11 +422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 0
+  Attenuation: 9.99999975e-06
   StartAngle: 0
   DeltaTime: .0199999996
   RadiusVector: {x: 0, y: 0, z: 0}
-  CenterForceDir: {x: 0, y: 0, z: 0}
-  MoveGravitySun: {x: 0, y: 0, z: 0}
 --- !u!1 &589298952
 GameObject:
   m_ObjectHideFlags: 0
