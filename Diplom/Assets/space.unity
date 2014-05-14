@@ -317,6 +317,7 @@ GameObject:
   - 114: {fileID: 352973539}
   - 45: {fileID: 352973541}
   - 114: {fileID: 352973542}
+  - 114: {fileID: 352973540}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -397,11 +398,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitTarget: {fileID: 1553579138}
+  OrbitTarget: {fileID: 0}
   distance: 100
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
+--- !u!114 &352973540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352973533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fc931befe670148ba93388616ca5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!45 &352973541
 Skybox:
   m_ObjectHideFlags: 0
@@ -614,6 +627,7 @@ GameObject:
   - 135: {fileID: 850201694}
   - 23: {fileID: 850201693}
   - 114: {fileID: 850201692}
+  - 114: {fileID: 850201697}
   m_Layer: 0
   m_Name: Jupiter
   m_TagString: Untagged
@@ -698,6 +712,24 @@ Transform:
   m_LocalScale: {x: 13, y: 13, z: 13}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &850201697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850201691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04326a60aef5f748803e892b2e4f794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitTarget: {fileID: 0}
+  OrbitTarget: {fileID: 0}
+  distance: 0
+  xSpeed: 250
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
 --- !u!1001 &911699071
 Prefab:
   m_ObjectHideFlags: 0

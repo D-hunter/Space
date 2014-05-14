@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraController : MonoBehaviour
 {
 	public Transform orbitTarget;
+	public GameObject OrbitTarget;
 	public float distance;
 	public float xSpeed = 250.0f;
 	public float ySpeed = 120.0f;
@@ -63,7 +64,8 @@ public class CameraController : MonoBehaviour
 
 	void RunOrbit ()
 	{
-		if (orbitTarget && Input.GetKey (KeyCode.Mouse1)) {
+		if (orbitTarget && Input.GetKey (KeyCode.Mouse1)) 
+		{
 			x += Input.GetAxis ("Mouse X") * xSpeed * Time.deltaTime;
 			y -= Input.GetAxis ("Mouse Y") * ySpeed * Time.deltaTime;
 		
@@ -76,7 +78,8 @@ public class CameraController : MonoBehaviour
 
 	void DefaultPosition ()
 	{
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.Space)) 
+		{
 			orbitTarget = GameObject.FindGameObjectWithTag("Sun").transform;
 			transform.rotation = Quaternion.Euler (90, 0, 0);
 			transform.position = transform.position = new Vector3 (0, 101, 0);
@@ -94,6 +97,7 @@ public class CameraController : MonoBehaviour
 			isColided = Physics.Raycast(ray,out hit);
 			if(isColided){
 				orbitTarget = hit.collider.gameObject.transform;
+				OrbitTarget = hit.collider.gameObject;
 				transform.LookAt(orbitTarget);
 			}
 		}
