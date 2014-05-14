@@ -48,7 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\PlanetMovement.cs" />
-     <Compile Include="Assets\Scripts\SpaceShip.cs" />
+     <Compile Include="Assets\Scripts\SpaceShipPhysics.cs" />
      <Compile Include="Assets\Scripts\UI.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Particle Shaders\Mobile Multiply Culled.shader" />
