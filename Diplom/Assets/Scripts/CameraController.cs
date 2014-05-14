@@ -64,6 +64,7 @@ public class CameraController : MonoBehaviour
 
 	void RunOrbit ()
 	{
+		transform.LookAt(orbitTarget);
 		if (orbitTarget && Input.GetKey (KeyCode.Mouse1)) 
 		{
 			x += Input.GetAxis ("Mouse X") * xSpeed * Time.deltaTime;
