@@ -243,6 +243,7 @@ GameObject:
   - 33: {fileID: 248630831}
   - 136: {fileID: 248630830}
   - 23: {fileID: 248630829}
+  - 123: {fileID: 248630833}
   m_Layer: 0
   m_Name: StarDestroyer
   m_TagString: Untagged
@@ -298,10 +299,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248630828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.9345951, y: -3.78249454, z: -9.21562576}
+  m_LocalPosition: {x: 48.0783615, y: -3.78249454, z: -9.21562576}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!123 &248630833
+LensFlare:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248630828}
+  m_Enabled: 1
+  m_Flare: {fileID: 12100000, guid: 54fbbf098d116effa00081aba8ad6659, type: 2}
+  m_Color: {r: .963235319, g: .0141652385, b: .0141652385, a: 0}
+  m_Brightness: .600000024
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!1 &352973533
 GameObject:
   m_ObjectHideFlags: 0

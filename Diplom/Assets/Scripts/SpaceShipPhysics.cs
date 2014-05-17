@@ -10,7 +10,7 @@ public class SpaceShipPhysics : MonoBehaviour {
 	public Vector3 RadiusVector;
 
 	private static int count_of_planets = 9;
-	private static int IndexOfPlanet = 2;
+	private static int IndexOfPlanet = 5;
 	private static float _OrbitHeight = 0.3f;
 	private Vector3 CenterForceDir;
 	private Vector3 MoveGravitySun;
