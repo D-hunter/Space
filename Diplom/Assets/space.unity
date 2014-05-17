@@ -243,9 +243,10 @@ GameObject:
   - 33: {fileID: 248630831}
   - 136: {fileID: 248630830}
   - 23: {fileID: 248630829}
+  - 114: {fileID: 248630833}
   m_Layer: 0
   m_Name: StarDestroyer
-  m_TagString: Untagged
+  m_TagString: StarDestroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,6 +303,26 @@ Transform:
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &248630833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 248630828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c066043e953981439f81d20de1be52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Acceleration: 0
+  Attenuation: 9.99999975e-06
+  StartAngle: 0
+  DeltaTime: .0199999996
+  RadiusVector: {x: 0, y: 0, z: 0}
+  SdLaunched: 0
+  SdArrived: 0
+  SdOnRbit: 0
+  nitro: 0
 --- !u!1 &352973533
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +337,6 @@ GameObject:
   - 81: {fileID: 352973534}
   - 114: {fileID: 352973539}
   - 45: {fileID: 352973541}
-  - 114: {fileID: 352973542}
   - 114: {fileID: 352973540}
   m_Layer: 0
   m_Name: Main Camera
@@ -415,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fc931befe670148ba93388616ca5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ship: {fileID: 0}
 --- !u!45 &352973541
 Skybox:
   m_ObjectHideFlags: 0
@@ -423,22 +444,6 @@ Skybox:
   m_GameObject: {fileID: 352973533}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: d2a829d3df5ff1943a858010ba711fab, type: 2}
---- !u!114 &352973542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 352973533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c066043e953981439f81d20de1be52d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Acceleration: 0
-  Attenuation: 9.99999975e-06
-  StartAngle: 0
-  DeltaTime: .0199999996
-  RadiusVector: {x: 0, y: 0, z: 0}
 --- !u!1 &589298952
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class UI : MonoBehaviour
 	Rect bustButton;
 	Rect planetInfo;
 	Rect flyButton;
+
+	string Name;
 	float Weight;
 	float Radius;
 	float declX;
@@ -19,14 +21,18 @@ public class UI : MonoBehaviour
 	float Eks;
 	float Period;
 
+	public GameObject ship;
+	bool isNitro = false;
+
 	void Start ()
 	{
 		heightCoeficient = 444f / Screen.height;
 		widthCoeficient = 1040f / Screen.width;
+		ship = GameObject.FindGameObjectWithTag("StarDestroyer");
 
 		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
 		bustButton = new Rect ((Screen.width / 2 - 25)* widthCoeficient, 10 * heightCoeficient, 50 * widthCoeficient, 50 * heightCoeficient);
-		flyButton = new Rect ((Screen.width / 2 - 50) * widthCoeficient, (Screen.height - 100) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
+		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 100) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
 		planetInfo = new Rect ((Screen.width - 210) * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 200 * heightCoeficient);
 	}
 	
@@ -40,11 +46,14 @@ public class UI : MonoBehaviour
 		if (GUI.Button (new Rect (exitButton), "Залишити програму")) {
 			Application.Quit ();
 		}
+
 		if (GUI.Button (new Rect (bustButton), "GO!")) {
-			Debug.Log ("Burning Out!!!");
+			ship.GetComponent<SpaceShipPhysics>().nitro = !ship.GetComponent<SpaceShipPhysics>().nitro;
 		}
 
-		GUI.TextArea (new Rect (planetInfo), "Вага планети: " + Weight +
+		GUI.TextArea (new Rect (planetInfo), 
+		    " Назва планети: " + Name +
+		    "\n Вага планети: " + Weight +
 			"\n Радіус: " + Radius + 
 			"\n Нахил орбіти по осі Х: " + declX + 
 			"\n Нахил орбіти по осі Y: " + declY +
@@ -53,13 +62,15 @@ public class UI : MonoBehaviour
 			"\n Період обертання: " + Period);
 
 		if (GUI.Button (new Rect (flyButton), "Вилетіти")) {
+			ship.GetComponent<SpaceShipPhysics>().SdLaunched = true;
 		}
 	}
 
 	void GetPlanetInfo ()
 	{
-		planet = Camera.main.GetComponent<CameraController> ().OrbitTarget;
-		data = planet.GetComponent<PlanetMovement> ();
+		planet = Camera.main.GetComponent<CameraController>().OrbitTarget;
+		data = planet.GetComponent<PlanetMovement>();
+		Name = planet.name;
 		Weight = data.Wheight;
 		Radius = data.Radius;
 		declX = data.declX;
