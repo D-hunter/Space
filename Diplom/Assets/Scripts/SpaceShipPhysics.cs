@@ -20,6 +20,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	private static Vector3 GlobalForceScale = new Vector3 (0.1f, 0.1f, 0.1f);
 	private Vector3 ShipAccelerationDir;
 	private Vector3 DestPlanetLastPos;
+	public string DestPlanetName;
 
 	//***************************************
 	//Physic objects variables***************

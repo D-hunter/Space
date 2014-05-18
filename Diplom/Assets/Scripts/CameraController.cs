@@ -12,12 +12,15 @@ public class CameraController : MonoBehaviour
 	public float yMaxLimit = 80;
 	private float x = 0.0f;
 	private float y = 0.0f;
+	private GameObject StarDestroyer;
+	private GameObject DestPlanet;
 
 	void Start ()
 	{
 		transform.position = new Vector3 (0, 101, 0);
 		distance = transform.position.y;
 		StartOrbit ();
+		StarDestroyer = GameObject.Find ("StarDestroyer");
 	}
 	
 	void Update ()
@@ -26,10 +29,25 @@ public class CameraController : MonoBehaviour
 		RunOrbit ();
 		DefaultPosition ();
 		SelectTarget();
+		if (Input.GetKey (KeyCode.C)) {
+			CameraOnShip ();
+		}
+	}
+
+	void CameraOnShip()
+	{
+		DestPlanet = StarDestroyer.GetComponent<SpaceShipPhysics> ().DestPlanet;
+		Vector3 CamMoveDir = VectDif (DestPlanet.transform.position, StarDestroyer.transform.position).normalized;
+		CamMoveDir = VectDif (new Vector3 (), CamMoveDir);
+		CamMoveDir *= 10;
+		transform.position = StarDestroyer.transform.position + CamMoveDir;
+		transform.LookAt (StarDestroyer.transform.position);
 	}
 
 	void Zoom ()
 	{
+		try
+		{
 		Vector3 movementVector = (orbitTarget.position - transform.position).normalized;
 		if ((Input.GetAxis ("Mouse ScrollWheel") < 0) && distance < 600) {
 			transform.position -= movementVector * 10;
@@ -37,6 +55,10 @@ public class CameraController : MonoBehaviour
 		} else if ((Input.GetAxis ("Mouse ScrollWheel") > 0) && distance > 15) {
 			transform.position += movementVector * 10;
 			distance = transform.position.y;
+		}
+		}
+		catch (System.Exception e)
+		{
 		}
 	}
 	
@@ -64,7 +86,8 @@ public class CameraController : MonoBehaviour
 
 	void RunOrbit ()
 	{
-		transform.LookAt(orbitTarget);
+		if (orbitTarget != null)
+			transform.LookAt(orbitTarget);
 		if (orbitTarget && Input.GetKey (KeyCode.Mouse1)) 
 		{
 			x += Input.GetAxis ("Mouse X") * xSpeed * Time.deltaTime;
@@ -83,7 +106,7 @@ public class CameraController : MonoBehaviour
 		{
 			orbitTarget = GameObject.FindGameObjectWithTag("Sun").transform;
 			transform.rotation = Quaternion.Euler (90, 0, 0);
-			transform.position = transform.position = new Vector3 (0, 101, 0);
+			transform.position = transform.position = new Vector3 (0, 121, 0);
 		}
 	}
 
@@ -102,5 +125,10 @@ public class CameraController : MonoBehaviour
 				transform.LookAt(orbitTarget);
 			}
 		}
+	}
+
+	Vector3 VectDif (Vector3 begin, Vector3 End)
+	{
+		return new Vector3 (begin.x - End.x, begin.y - End.y, begin.z - End.z);
 	}
 }

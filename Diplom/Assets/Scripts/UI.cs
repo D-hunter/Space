@@ -42,6 +42,7 @@ public class UI : MonoBehaviour
 	void Update ()
 	{
 		GetPlanetInfo ();
+		planetInfo = new Rect ((Screen.width - 210) * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 200 * heightCoeficient);
 	}
 
 	void OnGUI ()
@@ -73,6 +74,8 @@ public class UI : MonoBehaviour
 
 	void GetPlanetInfo ()
 	{
+		try
+		{
 		planet = Camera.main.GetComponent<CameraController>().OrbitTarget;
 		data = planet.GetComponent<PlanetMovement>();
 		Name = planet.name;
@@ -83,6 +86,9 @@ public class UI : MonoBehaviour
 		declZ = data.declZ;
 		Eks = data.Eks;
 		Period = data.Period;
-
+		}
+		catch(System.Exception e)
+		{
+		}
 	}
 }
