@@ -243,10 +243,10 @@ GameObject:
   - 33: {fileID: 248630831}
   - 136: {fileID: 248630830}
   - 23: {fileID: 248630829}
-  - 123: {fileID: 248630833}
+  - 114: {fileID: 248630833}
   m_Layer: 0
   m_Name: StarDestroyer
-  m_TagString: Untagged
+  m_TagString: StarDestroyer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,25 +299,30 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248630828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.0783615, y: -3.78249454, z: -9.21562576}
+  m_LocalPosition: {x: 19.9345951, y: -3.78249454, z: -9.21562576}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!123 &248630833
-LensFlare:
+--- !u!114 &248630833
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248630828}
   m_Enabled: 1
-  m_Flare: {fileID: 12100000, guid: 54fbbf098d116effa00081aba8ad6659, type: 2}
-  m_Color: {r: .963235319, g: .0141652385, b: .0141652385, a: 0}
-  m_Brightness: .600000024
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c066043e953981439f81d20de1be52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Acceleration: 0
+  Attenuation: 9.99999975e-06
+  StartAngle: 0
+  DeltaTime: .0199999996
+  RadiusVector: {x: 0, y: 0, z: 0}
+  SdLaunched: 0
+  SdArrived: 0
+  SdOnRbit: 0
+  nitro: 0
 --- !u!1 &352973533
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +337,7 @@ GameObject:
   - 81: {fileID: 352973534}
   - 114: {fileID: 352973539}
   - 45: {fileID: 352973541}
-  - 114: {fileID: 352973542}
+  - 114: {fileID: 352973540}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -413,11 +418,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitTarget: {fileID: 1553579138}
+  OrbitTarget: {fileID: 0}
   distance: 100
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
+--- !u!114 &352973540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352973533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fc931befe670148ba93388616ca5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
 --- !u!45 &352973541
 Skybox:
   m_ObjectHideFlags: 0
@@ -426,22 +444,6 @@ Skybox:
   m_GameObject: {fileID: 352973533}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: d2a829d3df5ff1943a858010ba711fab, type: 2}
---- !u!114 &352973542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 352973533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c066043e953981439f81d20de1be52d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Acceleration: 0
-  Attenuation: 9.99999975e-06
-  StartAngle: 0
-  DeltaTime: .0199999996
-  RadiusVector: {x: 0, y: 0, z: 0}
 --- !u!1 &589298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +615,10 @@ Prefab:
       propertyPath: declY
       value: .0228000004
       objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 850201691}
@@ -630,6 +636,7 @@ GameObject:
   - 135: {fileID: 850201694}
   - 23: {fileID: 850201693}
   - 114: {fileID: 850201692}
+  - 114: {fileID: 850201697}
   m_Layer: 0
   m_Name: Jupiter
   m_TagString: Untagged
@@ -714,6 +721,24 @@ Transform:
   m_LocalScale: {x: 13, y: 13, z: 13}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &850201697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850201691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04326a60aef5f748803e892b2e4f794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbitTarget: {fileID: 0}
+  OrbitTarget: {fileID: 0}
+  distance: 0
+  xSpeed: 250
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
 --- !u!1001 &911699071
 Prefab:
   m_ObjectHideFlags: 0
@@ -789,6 +814,10 @@ Prefab:
       propertyPath: declY
       value: .0135000004
       objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1066707685}
@@ -856,6 +885,10 @@ Prefab:
     - target: {fileID: 400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: m_LocalScale.z
       value: 2.29999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -939,6 +972,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1309,6 +1346,10 @@ Prefab:
       propertyPath: declY
       value: .122100003
       objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1355091052}
@@ -1484,6 +1525,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: declY
       value: .0434999987
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1762,6 +1807,10 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 204964787}
@@ -1841,6 +1890,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: declY
       value: .0593000017
+      objectReference: {fileID: 0}
+    - target: {fileID: 13500000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
