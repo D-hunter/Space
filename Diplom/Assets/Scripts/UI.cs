@@ -24,6 +24,9 @@ public class UI : MonoBehaviour
 	public GameObject ship;
 	bool isNitro = false;
 
+	public float MAccs = 0.1f;
+	public float MaxAccs = 0.7f;
+
 	void Start ()
 	{
 		heightCoeficient = 444f / Screen.height;
@@ -39,7 +42,11 @@ public class UI : MonoBehaviour
 	void Update ()
 	{
 		GetPlanetInfo ();
+<<<<<<< HEAD
 		planetInfo = new Rect ((Screen.width - (Screen.width / 4) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, (Screen.height / 4) * heightCoeficient);
+=======
+		planetInfo = new Rect ((Screen.width - 210) * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 200 * heightCoeficient);
+>>>>>>> da981424ba923f6b7b51b3c8316ef8e1129275fb
 	}
 
 	void OnGUI ()
@@ -49,7 +56,8 @@ public class UI : MonoBehaviour
 		}
 
 		if (GUI.Button (new Rect (bustButton), "GO!")) {
-			ship.GetComponent<SpaceShipPhysics>().nitro = !ship.GetComponent<SpaceShipPhysics>().nitro;
+			if ((ship.GetComponent<SpaceShipPhysics>().Acceleration + MAccs) < MaxAccs)
+				ship.GetComponent<SpaceShipPhysics>().Acceleration += MAccs;
 		}
 
 		GUI.TextArea (new Rect (planetInfo), 
@@ -64,11 +72,14 @@ public class UI : MonoBehaviour
 
 		if (GUI.Button (new Rect (flyButton), "Вилетіти")) {
 			ship.GetComponent<SpaceShipPhysics>().SdLaunched = true;
+			ship.GetComponent<SpaceShipPhysics>().DestPlanet = GameObject.Find(planet.name);//!!!
 		}
 	}
 
 	void GetPlanetInfo ()
 	{
+		try
+		{
 		planet = Camera.main.GetComponent<CameraController>().OrbitTarget;
 		data = planet.GetComponent<PlanetMovement>();
 		Name = planet.name;
@@ -79,6 +90,9 @@ public class UI : MonoBehaviour
 		declZ = data.declZ;
 		Eks = data.Eks;
 		Period = data.Period;
-
+		}
+		catch(System.Exception e)
+		{
+		}
 	}
 }

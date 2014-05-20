@@ -9,18 +9,18 @@ public class SpaceShipPhysics : MonoBehaviour
 	public float StartAngle = 0.0f;
 	public float DeltaTime = 0.05f;
 	public Vector3 RadiusVector;
+	public Vector3 RadiusVectorMax;
 	private static int count_of_planets = 9;
-	private static int IndexOfPlanet = 2;
+	private static int IndexOfPlanet = 5;
 	private static float _OrbitHeight = 0.3f;
 	private Vector3 CenterForceDir;
 	private Vector3 MoveGravitySun;
 	private float CenterForce;
 	private static float ForceScale = 1053f;
 	private static Vector3 GlobalForceScale = new Vector3 (0.1f, 0.1f, 0.1f);
-	private float maxAcceleration = 0.7f;
-	private float minAcceleration = 0.001f;
 	private Vector3 ShipAccelerationDir;
 	private Vector3 DestPlanetLastPos;
+	public string DestPlanetName;
 
 	//***************************************
 	//Physic objects variables***************
@@ -39,7 +39,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	};
 	private GameObject StarDestroyer;
 	private GameObject StartPlanet;
-	private GameObject DestPlanet;
+	public GameObject DestPlanet;
 	private float G = 0.67f;
 	//***************************************
 	// Use this for initialization
@@ -61,7 +61,7 @@ public class SpaceShipPhysics : MonoBehaviour
 		StartPlanet = Planets [3];
 		DestPlanet = Planets [IndexOfPlanet];
 		RadiusVector = UnproResizeSum (StartPlanet.transform.localScale, new Vector3 (0.3f, 0.3f, 0.3f));
-
+		RadiusVectorMax = RadiusVector;
 		Vector3 FirstPos = StartPlanet.transform.position;
 		float z = StartPlanet.transform.position.z * Mathf.Cos (StartAngle + 0.1f);
 		Vector3 SecondPos = new Vector3 (1, 0, z);
@@ -73,7 +73,6 @@ public class SpaceShipPhysics : MonoBehaviour
 	public bool SdLaunched = false;
 	public bool SdArrived = false;
 	public bool SdOnRbit = false;
-	public bool nitro = false;
 	//******************************
 
 	// Update is called once per frame
@@ -90,6 +89,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	{
 		if (!SdLaunched) {
 			OrbitRotation (StartPlanet);
+			DestPlanet = Planets [IndexOfPlanet];
 		}
 		else {
 			if (!SdArrived) {
@@ -99,7 +99,10 @@ public class SpaceShipPhysics : MonoBehaviour
 				StarDestroyer.transform.position += Vector3.Scale (MoveToGravity, GlobalForceScale);
 				//Сила ускорения вокругсолнечного вращения перпендикулярна силе притяжения Солнца
 				StarDestroyer.transform.position += Vector3.Scale (new Vector3 (CenterForceDir.x * CenterForce, 0, CenterForceDir.z * CenterForce), GlobalForceScale);
-				AddAcceleration();
+				if (StartPlanet.transform.position.magnitude < DestPlanet.transform.position.magnitude)
+					AddAccelerationToOuterPlanet();
+				else
+					AddAccelerationToInnerPlanet();
 				Vector3 SpaceAccelerationToCoord = LongPower (ShipAccelerationDir, ref Acceleration, Attenuation);
 				StarDestroyer.transform.position += Vector3.Scale (SpaceAccelerationToCoord, GlobalForceScale);
 				if (VectDif (StarDestroyer.transform.position, DestPlanet.transform.position).magnitude < DestPlanet.transform.localScale.magnitude + 5.0f) {
@@ -115,22 +118,29 @@ public class SpaceShipPhysics : MonoBehaviour
 				float DestPlanetSpeed = VectDif (DestPlanet.transform.position, DestPlanetLastPos).magnitude * 1.5f;
 				Vector3 ToOrbitLandPoint = MRotVect (OrbitDistance, MRotZ (Mathf.PI / 4.0f)).normalized;
 				StarDestroyer.transform.position += new Vector3 (ToOrbitLandPoint.x * DestPlanetSpeed * 2.0f, ToOrbitLandPoint.y * DestPlanetSpeed * 2.0f, ToOrbitLandPoint.z * DestPlanetSpeed * 2.0f);
-				StartAngle = Vector3.Angle (VectDif (DestPlanet.transform.position, StarDestroyer.transform.position), new Vector3 (0, 0, 1)) * Mathf.Deg2Rad - Mathf.PI / 2.0f;
-				if (OrbitDistance.magnitude <= RadiusVector.magnitude * 0.5f)
+				StartAngle = Vector3.Angle (VectDif (DestPlanet.transform.position, StarDestroyer.transform.position), new Vector3 (0, 0, 1)) * Mathf.Deg2Rad;
+				if (StarDestroyer.transform.position.magnitude - DestPlanet.transform.position.magnitude < 0)
+					StartAngle = Mathf.PI * 2.0f + StartAngle;
+				if (OrbitDistance.magnitude <= RadiusVectorMax.magnitude * 0.5f){
 					SdOnRbit = true;
+					StartAngle = -Mathf.PI + StartAngle;
+				}
 			}
-			if (SdOnRbit)
+			if (SdOnRbit){
 				OrbitRotation (DestPlanet);
+				SdLaunched = false;
+				SdArrived = false;
+				SdOnRbit = false;
+				StartPlanet = DestPlanet;
+				RadiusVectorMax = new Vector3(RadiusVector.x * 1.3f, 0, RadiusVector.z * 1.3f);
+			}
 		}
 		DestPlanetLastPos = DestPlanet.transform.position;
 	}
 
-	void AddAcceleration ()
+	void AddAccelerationToOuterPlanet ()
 	{
-		if (!SdArrived && nitro) {
-			if ((Acceleration += minAcceleration) > maxAcceleration)
-				Acceleration -= minAcceleration;
-			//ShipAccelerationDir = VectDif(DestPlanet.transform.position, StarDestroyer.transform.position).normalized;
+		if (!SdArrived) {
 			MoveGravitySun = GetPower (Planets [0], StarDestroyer, 0).normalized;
 			if (UnproResizeSum (VectDif (DestPlanet.transform.position, StarDestroyer.transform.position), StarDestroyer.transform.position).magnitude > StarDestroyer.transform.position.magnitude)
 				ShipAccelerationDir = VectDif (new Vector3 (), MoveGravitySun);
@@ -138,7 +148,15 @@ public class SpaceShipPhysics : MonoBehaviour
 				ShipAccelerationDir = MoveGravitySun;
 		}
 	}
-
+	void AddAccelerationToInnerPlanet(){
+		if (!SdArrived) {
+			MoveGravitySun = GetPower (Planets [0], StarDestroyer, 0).normalized;
+			ShipAccelerationDir = VectDif(new Vector3 (), UnproResizeSum(new Vector3(CenterForceDir.x * 8,
+			                                                                         CenterForceDir.y * 8,
+			                                                                         CenterForceDir.z * 8),
+			                                                                         MoveGravitySun).normalized);
+		}
+	}
 	//*********************************************************************************
 	//Vector3 additional ariphmetic****************************************************
 	Vector3 VectDif (Vector3 begin, Vector3 End)
@@ -211,10 +229,13 @@ public class SpaceShipPhysics : MonoBehaviour
 	public void OrbitRotation (GameObject planet)
 	{
 		Vector3 PlanetRotOffset = planet.transform.position;
-		float x = RadiusVector.x * Mathf.Sin (StartAngle) + PlanetRotOffset.x;
-		float z = RadiusVector.z * Mathf.Cos (StartAngle) + PlanetRotOffset.z;
+		float x = RadiusVectorMax.x * Mathf.Sin (StartAngle) + PlanetRotOffset.x;
+		float z = RadiusVectorMax.z * Mathf.Cos (StartAngle) + PlanetRotOffset.z;
 		
 		StarDestroyer.transform.position = new Vector3 (x, 0, z);
+
+		if (RadiusVectorMax.magnitude > RadiusVector.magnitude)
+			RadiusVectorMax = UnproResizeSum(RadiusVectorMax, new Vector3(-0.01f, 0, -0.01f));
 
 		if ((StartAngle -= DeltaTime) < Mathf.PI * -2)
 			StartAngle = 0.0f;
