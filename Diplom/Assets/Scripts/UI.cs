@@ -35,18 +35,17 @@ public class UI : MonoBehaviour
 
 		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
 		bustButton = new Rect ((Screen.width / 2 - 25)* widthCoeficient, 10 * heightCoeficient, 50 * widthCoeficient, 50 * heightCoeficient);
-		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 100) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
-		planetInfo = new Rect ((Screen.width - (Screen.width / 4) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, (Screen.height / 4) * heightCoeficient);
+		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 50) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
+		planetInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, 200 * heightCoeficient);
 	}
 	
 	void Update ()
 	{
 		GetPlanetInfo ();
-<<<<<<< HEAD
-		planetInfo = new Rect ((Screen.width - (Screen.width / 4) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, (Screen.height / 4) * heightCoeficient);
-=======
-		planetInfo = new Rect ((Screen.width - 210) * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 200 * heightCoeficient);
->>>>>>> da981424ba923f6b7b51b3c8316ef8e1129275fb
+		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
+		bustButton = new Rect ((Screen.width / 2 - 25)* widthCoeficient, 10 * heightCoeficient, 50 * widthCoeficient, 50 * heightCoeficient);
+		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 50) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
+		planetInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, 200 * heightCoeficient);
 	}
 
 	void OnGUI ()
