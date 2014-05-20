@@ -33,12 +33,13 @@ public class UI : MonoBehaviour
 		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
 		bustButton = new Rect ((Screen.width / 2 - 25)* widthCoeficient, 10 * heightCoeficient, 50 * widthCoeficient, 50 * heightCoeficient);
 		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 100) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
-		planetInfo = new Rect ((Screen.width - 210) * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 200 * heightCoeficient);
+		planetInfo = new Rect ((Screen.width - (Screen.width / 4) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, (Screen.height / 4) * heightCoeficient);
 	}
 	
 	void Update ()
 	{
 		GetPlanetInfo ();
+		planetInfo = new Rect ((Screen.width - (Screen.width / 4) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, (Screen.height / 4) * heightCoeficient);
 	}
 
 	void OnGUI ()
