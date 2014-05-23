@@ -38,7 +38,7 @@ public class SpaceShipPhysics : MonoBehaviour
 
 	//***************************************
 	//Physic objects variables***************
-	private GameObject[] Planets = new GameObject[count_of_planets];
+	public GameObject[] Planets = new GameObject[count_of_planets];
 	private float[] MPlanets = {
 		1989000f,
 		0.32868f,	//10^24kg
