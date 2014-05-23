@@ -19,7 +19,19 @@ public class PlanetMovement : MonoBehaviour
 	public float Eks = 0.017f;
 	public float Period = 1.0f;
 	public float DeltaTime = 0.001f;
-	
+	public float RotationPeriod = 1.0f;
+	//*****************************
+	//Variables for Planets UI*****
+	public float UISunRotationPeriod;    // Days
+	public float UIPlanetDiametr;		   // km
+	public float UISelfRotationPeriod;   // Days
+	public string UITemperature;
+	public string UIAtmosphere;
+	public float UICountSputnik;
+	public string UIMainSputnik;
+	public float UIPlanetWeight;		   // Zt ЗетаТонн 10^21 тонн
+	//*****************************
+
 	void Start ()
 	{
 		float Dist = this.transform.position.z;

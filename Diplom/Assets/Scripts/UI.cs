@@ -90,6 +90,7 @@ public class UI : MonoBehaviour
 		if (GUI.Button (new Rect (flyButton), "Вилетіти")) {
 			ship.GetComponent<SpaceShipPhysics>().SdLaunched = true;
 			ship.GetComponent<SpaceShipPhysics>().DestPlanet = GameObject.Find(planet.name);//!!!
+			ship.GetComponent<SpaceShipPhysics>().Acceleration += 0.3f; // start acceleration
 		}
 
 		if (ship.GetComponent<SpaceShipPhysics>().SdArrived) 
