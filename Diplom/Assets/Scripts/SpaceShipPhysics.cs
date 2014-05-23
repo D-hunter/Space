@@ -4,7 +4,7 @@ using System.Collections;
 public class SpaceShipPhysics : MonoBehaviour
 {
 
-	public float Acceleration;
+	public float Acceleration = 0.3f;
 	public float Attenuation;
 	public float StartAngle = 0.0f;
 	public float DeltaTime = 0.05f;
@@ -21,10 +21,23 @@ public class SpaceShipPhysics : MonoBehaviour
 	private Vector3 ShipAccelerationDir;
 	private Vector3 DestPlanetLastPos;
 	public string DestPlanetName;
+	public float FlyTime;
+	private const float universescale = 0.1852f; // in AO or 27.705.525,7092 in km
+	private const float timescale = 17.0f;
+	private float timevalue = 0;
+	public Vector3 DestoyerLastPosition;
+	private float AO = 149597871;
+	private float TS = 86400;
+
+	//***************************************
+	//Variables for SpaceShip UI*************
+	public float UICurrentSpeed = 0;   	//AO per 1 day
+	public string UIFlyTimeCon;	 	//how much time ship flies in days
+	public float UIPathLength = 0; 	 	//how much AO flied
+	//***************************************
 
 	//***************************************
 	//Physic objects variables***************
-
 	private GameObject[] Planets = new GameObject[count_of_planets];
 	private float[] MPlanets = {
 		1989000f,
@@ -42,7 +55,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	public GameObject DestPlanet;
 	private float G = 0.67f;
 	//***************************************
-	// Use this for initialization
+	// Use this for initialization***********
 	void Start ()
 	{
 		//************************************************
@@ -110,6 +123,9 @@ public class SpaceShipPhysics : MonoBehaviour
 					RadiusVector = UnproResizeSum (DestPlanet.transform.localScale, new Vector3 (0.05f, 0.05f, 0.05f));
 					DeltaTime /= DestPlanet.transform.localScale.magnitude / 5.0f;
 				}
+				TimeControl();
+				UIPathLength += VectDif(StarDestroyer.transform.position, DestoyerLastPosition).magnitude * universescale;
+				UICurrentSpeed = (UIPathLength * AO) / (FlyTime * TS);
 			}
 		}
 		if (SdArrived) {
@@ -136,6 +152,7 @@ public class SpaceShipPhysics : MonoBehaviour
 			}
 		}
 		DestPlanetLastPos = DestPlanet.transform.position;
+		DestoyerLastPosition = StarDestroyer.transform.position;
 	}
 
 	void AddAccelerationToOuterPlanet ()
@@ -243,7 +260,14 @@ public class SpaceShipPhysics : MonoBehaviour
 	//*********************************************************************************
 
 	//*********************************************************************************
-	// Physics additional functions****************************************************
-
+	// Time control********************************************************************
+	public void TimeControl()
+	{
+		if (++timevalue == 17) {
+			timevalue = 0;
+			FlyTime++;
+		}
+		UIFlyTimeCon = "Днів у польоті: " + FlyTime.ToString ();
+	}
 	//*********************************************************************************
 }
