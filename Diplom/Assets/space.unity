@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fc931befe670148ba93388616ca5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipPhys: {fileID: 0}
   ship: {fileID: 0}
   MAccs: .100000001
   MaxAccs: .699999988
