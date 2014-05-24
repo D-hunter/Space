@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class UI : MonoBehaviour
@@ -29,6 +28,8 @@ public class UI : MonoBehaviour
 	string MainSatelite;
 	float PlanetWeight;
 
+	Vector3 scale;
+
 	public GameObject ship;
 	bool isNitro = false;
 	bool isFlyEnded = false;
@@ -36,39 +37,48 @@ public class UI : MonoBehaviour
 	public float MaxAccs = 0.7f;
 	public GUIStyle style = new GUIStyle ();
 
+	float originalHeight = 444f;
+	float originalWidth = 1040f;
+
 	void Start ()
 	{
-		heightCoeficient = 444f / Screen.height;
-		widthCoeficient = 1040f / Screen.width;
+		heightCoeficient = Screen.height / originalHeight;
+		widthCoeficient = Screen.width / originalWidth;
+		scale = new Vector3(widthCoeficient,heightCoeficient,1);
 		ship = GameObject.FindGameObjectWithTag ("StarDestroyer");
 		shipPhys = ship.GetComponent<SpaceShipPhysics>();
 		style.alignment = TextAnchor.MiddleCenter;
 		style.normal.textColor = Color.white;
 
-
-		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
-		bustButton = new Rect ((Screen.width / 2 - 25) * widthCoeficient, 10 * heightCoeficient, 100 * widthCoeficient, 50 * heightCoeficient);
-		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 50) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
-		planetInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, 200 * heightCoeficient);
-		sheepInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, planetInfo.height + (50 * heightCoeficient), (Screen.width / 4) * widthCoeficient, 100 * heightCoeficient);
-		endFlyMessage = new Rect ((Screen.width / 2 - 100) * widthCoeficient, (Screen.height / 1.07f - 50) * heightCoeficient, 200 * widthCoeficient, 100 * heightCoeficient);
+		exitButton = new Rect (10 , 10 , originalWidth / 5 , originalHeight / 10 );
+		bustButton = new Rect ((originalWidth / 2 - originalWidth / 20) , 10 , originalWidth / 10 , originalHeight / 10  );
+		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 5 , originalHeight / 10 );
+		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200);
+		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
+		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
 		InitializePlanetsButtonsRects();
 	}
-	
+
 	void FixedUpdate ()
 	{
-		exitButton = new Rect (10 * widthCoeficient, 10 * heightCoeficient, 200 * widthCoeficient, 50 * heightCoeficient);
-		bustButton = new Rect ((Screen.width / 2 - 25) * widthCoeficient, 10 * heightCoeficient, 100 * widthCoeficient, 50 * heightCoeficient);
-		flyButton = new Rect (10 * widthCoeficient, (Screen.height - 50) * heightCoeficient, 100 * widthCoeficient, 100 * heightCoeficient);
-		planetInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, 10 * heightCoeficient, (Screen.width / 4) * widthCoeficient, 200 * heightCoeficient);
-		sheepInfo = new Rect ((Screen.width - (Screen.width / 3.7f) + 10) * widthCoeficient, planetInfo.height + (50 * heightCoeficient), (Screen.width / 4) * widthCoeficient, 100 * heightCoeficient);
-		endFlyMessage = new Rect ((Screen.width / 2 - 100) * widthCoeficient, (Screen.height / 1.07f - 50) * heightCoeficient, 200 * widthCoeficient, 100 * heightCoeficient);
+		heightCoeficient = Screen.height / originalHeight;
+		widthCoeficient = Screen.width / originalWidth;
+		scale = new Vector3(widthCoeficient,heightCoeficient,1);
+		
+		exitButton = new Rect (10 , 10 ,  originalWidth / 5 , originalHeight / 10 );
+		bustButton = new Rect ((originalWidth / 2 - originalWidth / 20) , 10 ,originalWidth / 10 , originalHeight / 10  );
+		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 5 , originalHeight / 10 );
+		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200 );
+		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
+		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
 		InitializePlanetsButtonsRects();
 		GetPlanetInfo ();
 	}
 
 	void OnGUI ()
 	{
+		GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, scale);
+
 		if (GUI.Button (new Rect (exitButton), "Залишити програму")) {
 			Application.Quit ();
 		}
@@ -91,7 +101,7 @@ public class UI : MonoBehaviour
 		    "\n Головний супутник: " + MainSatelite);
 
 		GUI.TextArea (new Rect(sheepInfo),
-		              " Швидкість корабля (а.о./день): " + ship.GetComponent<SpaceShipPhysics>().UICurrentSpeed + 
+		              " Швидкість корабля (км/сек): " + ship.GetComponent<SpaceShipPhysics>().UICurrentSpeed + 
 		              "\n Пройдений шлях (а.о.): " + ship.GetComponent<SpaceShipPhysics>().UIPathLength + 
 		              "\n Час польоту (дні): " + ship.GetComponent<SpaceShipPhysics>().UIFlyTimeCon);
 
@@ -136,11 +146,11 @@ public class UI : MonoBehaviour
 
 	void InitializePlanetsButtonsRects()
 	{
-		PlanetsButtons[0] = new Rect(exitButton.x,exitButton.y + (50 * heightCoeficient), exitButton.width,30 * heightCoeficient);
+		PlanetsButtons[0] = new Rect(exitButton.x,exitButton.y + 30, exitButton.width, originalHeight / 20 );
 		
 		for (int i = 1; i < PlanetsButtons.Length; i++) 
 		{
-			PlanetsButtons[i] = new Rect(PlanetsButtons[i - 1].x,PlanetsButtons[i - 1].y + (40 * heightCoeficient), PlanetsButtons[i - 1].width, 30 * heightCoeficient);
+			PlanetsButtons[i] = new Rect(PlanetsButtons[i - 1].x,PlanetsButtons[i - 1].y + 30, PlanetsButtons[i - 1].width, originalHeight / 20  );
 		}
 	}
 
