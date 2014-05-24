@@ -14,14 +14,18 @@ public class UI : MonoBehaviour
 	Rect sheepInfo;
 	Rect flyButton;
 	Rect endFlyMessage;
+
 	string Name;
-	float Weight;
-	float Radius;
-	float declX;
-	float declZ;
-	float declY;
+	float RotationPeriod;
+	float Diameter;
+	float SelfRotPeriod;
+	string Temperature;
+	string Atmosphere;
 	float Eks;
-	float Period;
+	float SateliteCount;
+	string MainSatelite;
+	float PlanetWeight;
+
 	public GameObject ship;
 	bool isNitro = false;
 	bool isFlyEnded = false;
@@ -79,13 +83,15 @@ public class UI : MonoBehaviour
 
 		GUI.TextArea (new Rect (planetInfo), 
 		    " Назва планети: " + Name +
-			"\n Вага планети: " + Weight +
-			"\n Радіус: " + Radius + 
-			"\n Нахил орбіти по осі Х: " + declX + 
-			"\n Нахил орбіти по осі Y: " + declY +
-			"\n Нахил орбіти по осі Z: " + declZ +
+			"\n Вага планети: " + PlanetWeight +
+			"\n Діаметр: " + Diameter + 
+			"\n Період обертання навколо сонця: " + RotationPeriod + 
+		    "\n Період обертання навколо совєї осі: " + SelfRotPeriod +
+			"\n Атмосфера: " + Atmosphere +
+			"\n Температура: " + Temperature +
 			"\n Ексцентриситет орбіти: " + Eks + 
-			"\n Період обертання: " + Period);
+			"\n Кількість супутників: " + SateliteCount + 
+		    "\n Головний супутник: " + MainSatelite);
 
 		GUI.TextArea (new Rect(sheepInfo),
 		              " Швидкість корабля (а.о./день): " + ship.GetComponent<SpaceShipPhysics>().UICurrentSpeed + 
@@ -110,13 +116,15 @@ public class UI : MonoBehaviour
 			planet = Camera.main.GetComponent<CameraController> ().OrbitTarget;
 			data = planet.GetComponent<PlanetMovement> ();
 			Name = planet.name;
-			Weight = data.Wheight;
-			Radius = data.Radius;
-			declX = data.declX;
-			declY = data.declY;
-			declZ = data.declZ;
+			RotationPeriod = data.UISunRotationPeriod;
+			Diameter = data.UIPlanetDiametr;
+			PlanetWeight = data.UIPlanetWeight;
+			SelfRotPeriod = data.UISelfRotationPeriod;
+			Atmosphere = data.UIAtmosphere;
+			Temperature = data.UITemperature;
 			Eks = data.Eks;
-			Period = data.Period;
+			SateliteCount = data.UICountSputnik;
+			MainSatelite = data.UIMainSputnik;
 		} catch (System.Exception e) {
 		}
 	}
