@@ -34,7 +34,7 @@ public class UI : MonoBehaviour
 	bool isNitro = false;
 	bool isFlyEnded = false;
 	public float MAccs = 0.1f;
-	public float MaxAccs = 0.7f;
+	public float MaxAccs = 99f;
 	public GUIStyle style = new GUIStyle ();
 
 	float originalHeight = 444f;
