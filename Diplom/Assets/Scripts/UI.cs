@@ -102,6 +102,7 @@ public class UI : MonoBehaviour
 
 		GUI.TextArea (new Rect(sheepInfo),
 		              " Швидкість корабля (км/сек): " + ship.GetComponent<SpaceShipPhysics>().UICurrentSpeed + 
+		              "\n Швидкість на двигуні (км/сек): " + ship.GetComponent<SpaceShipPhysics>().UIEngineSpeed + 
 		              "\n Пройдений шлях (а.о.): " + ship.GetComponent<SpaceShipPhysics>().UIPathLength + 
 		              "\n " + ship.GetComponent<SpaceShipPhysics>().UIFlyTimeCon);
 
