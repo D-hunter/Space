@@ -28,12 +28,15 @@ public class SpaceShipPhysics : MonoBehaviour
 	public Vector3 DestoyerLastPosition;
 	private float AO = 149597871;
 	private float TS = 86400;
+	private float EnginePath = 0f;
+	private GameObject ShipLight;
 
 	//***************************************
 	//Variables for SpaceShip UI*************
 	public float UICurrentSpeed = 0;   	//AO per 1 day
 	public string UIFlyTimeCon;	 	//how much time ship flies in days
 	public float UIPathLength = 0; 	 	//how much AO flied
+	public float UIEngineSpeed = 0;
 	//***************************************
 
 	//***************************************
@@ -70,6 +73,7 @@ public class SpaceShipPhysics : MonoBehaviour
 		Planets [6] = GameObject.Find ("Saturn");
 		Planets [7] = GameObject.Find ("Uran");
 		Planets [8] = GameObject.Find ("Neptun");
+		ShipLight = GameObject.Find ("ShipLight");
 		//*************************************************
 		StartPlanet = Planets [3];
 		DestPlanet = Planets [IndexOfPlanet];
@@ -100,6 +104,7 @@ public class SpaceShipPhysics : MonoBehaviour
 
 	void FlyToPlanet ()
 	{
+		ShipLight.transform.position = StarDestroyer.transform.position;
 		if (!SdLaunched) {
 			OrbitRotation (StartPlanet);
 			DestPlanet = Planets [IndexOfPlanet];
@@ -124,8 +129,14 @@ public class SpaceShipPhysics : MonoBehaviour
 					DeltaTime /= DestPlanet.transform.localScale.magnitude / 5.0f;
 				}
 				TimeControl();
-				UIPathLength += VectDif(StarDestroyer.transform.position, DestoyerLastPosition).magnitude * universescale;
-				UICurrentSpeed = (UIPathLength * AO) / (FlyTime * TS);
+				Vector3 tel = VectDif(StarDestroyer.transform.position, DestoyerLastPosition);
+				UIPathLength += tel.magnitude * universescale;
+				EnginePath += Vector3.Dot(tel, CenterForceDir)*tel.magnitude * universescale;
+
+				if (timevalue == 16){
+					UICurrentSpeed = (UIPathLength * AO) / (FlyTime * TS);
+					UIEngineSpeed = (EnginePath * AO) / (FlyTime * TS);
+				}
 			}
 		}
 		if (SdArrived) {
@@ -168,9 +179,9 @@ public class SpaceShipPhysics : MonoBehaviour
 	void AddAccelerationToInnerPlanet(){
 		if (!SdArrived) {
 			MoveGravitySun = GetPower (Planets [0], StarDestroyer, 0).normalized;
-			ShipAccelerationDir = VectDif(new Vector3 (), UnproResizeSum(new Vector3(CenterForceDir.x * 8,
-			                                                                         CenterForceDir.y * 8,
-			                                                                         CenterForceDir.z * 8),
+			ShipAccelerationDir = VectDif(new Vector3 (), UnproResizeSum(new Vector3(CenterForceDir.x * 16,
+			                                                                         CenterForceDir.y * 16,
+			                                                                         CenterForceDir.z * 16),
 			                                                                         MoveGravitySun).normalized);
 		}
 	}
@@ -267,7 +278,7 @@ public class SpaceShipPhysics : MonoBehaviour
 			timevalue = 0;
 			FlyTime++;
 		}
-		UIFlyTimeCon = "Днів у польоті: " + FlyTime.ToString ();
+		UIFlyTimeCon = FlyTime.ToString ();
 	}
 	//*********************************************************************************
 }

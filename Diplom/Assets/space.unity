@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.685000002
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -251,7 +251,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 248630832}
   - 33: {fileID: 248630831}
-  - 136: {fileID: 248630830}
   - 23: {fileID: 248630829}
   - 114: {fileID: 248630833}
   m_Layer: 0
@@ -273,7 +272,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f24fced004bc7f14b964e124ba10473e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -282,19 +281,6 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
---- !u!136 &248630830
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 248630828}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &248630831
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -336,6 +322,7 @@ MonoBehaviour:
   UICurrentSpeed: 0
   UIFlyTimeCon: 
   UIPathLength: 0
+  UIEngineSpeed: 0
   Planets:
   - {fileID: 0}
   - {fileID: 0}
@@ -465,7 +452,7 @@ MonoBehaviour:
   shipPhys: {fileID: 0}
   ship: {fileID: 0}
   MAccs: .100000001
-  MaxAccs: .699999988
+  MaxAccs: 99
   style:
     m_Name: 
     m_Normal:
@@ -566,7 +553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -5.1500001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -783,6 +770,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 1876.64294
+      propertyPath: StartAngle
+      value: -.456
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -822,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.456
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1039,6 +1028,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 86.0543976
+      propertyPath: StartAngle
+      value: -1.24000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1175,6 +1166,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 5.97599983
+      propertyPath: StartAngle
+      value: -.248999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1328,6 +1321,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 101.592003
+      propertyPath: StartAngle
+      value: -5.1500001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1367,7 +1362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.248999998
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1472,7 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -6
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1577,7 +1572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -1.24000001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1797,6 +1792,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UISunRotationPeriod
       value: 87.9700012
+      propertyPath: StartAngle
+      value: -3.1400001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1836,7 +1833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -3.1400001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -2052,6 +2049,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 561.804016
+      propertyPath: StartAngle
+      value: -6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -2091,7 +2090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -2.25
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -2173,7 +2172,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1553579138}
   - 33: {fileID: 1553579141}
-  - 135: {fileID: 1553579140}
   - 23: {fileID: 1553579139}
   - 122: {fileID: 1553579143}
   - 123: {fileID: 1553579142}
@@ -2192,7 +2190,7 @@ Transform:
   m_GameObject: {fileID: 1553579137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &1553579139
@@ -2216,18 +2214,6 @@ Renderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
---- !u!135 &1553579140
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1553579137}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1553579141
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2260,7 +2246,7 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 4278677502
-  m_Size: 30
+  m_Size: 20
 --- !u!1001 &1588629017
 Prefab:
   m_ObjectHideFlags: 0
@@ -2409,6 +2395,8 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: .633449972
+      propertyPath: StartAngle
+      value: -.685000002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -2551,9 +2539,73 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 4.81067991
+      propertyPath: StartAngle
+      value: -2.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1445797673}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &2076090792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2076090794}
+  - 108: {fileID: 2076090793}
+  m_Layer: 0
+  m_Name: ShipLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &2076090793
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076090792}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 2
+  m_Color: {r: 0, g: 1, b: .296551704, a: 1}
+  m_Intensity: .200000003
+  m_Range: 1000
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 12100000, guid: 54fbbf098d116effa00081aba8ad6659, type: 2}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &2076090794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2076090792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
