@@ -50,9 +50,9 @@ public class UI : MonoBehaviour
 		style.alignment = TextAnchor.MiddleCenter;
 		style.normal.textColor = Color.white;
 
-		exitButton = new Rect (10 , 10 , originalWidth / 5 , originalHeight / 10 );
+		exitButton = new Rect (10 , 10 , originalWidth / 7, originalHeight / 10 );
 		bustButton = new Rect ((originalWidth / 2 - originalWidth / 20) , 10 , originalWidth / 10 , originalHeight / 10  );
-		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 5 , originalHeight / 10 );
+		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 7 , originalHeight / 10 );
 		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200);
 		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
 		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
@@ -65,9 +65,9 @@ public class UI : MonoBehaviour
 		widthCoeficient = Screen.width / originalWidth;
 		scale = new Vector3(widthCoeficient,heightCoeficient,1);
 		
-		exitButton = new Rect (10 , 10 ,  originalWidth / 5 , originalHeight / 10 );
+		exitButton = new Rect (10 , 10 ,  originalWidth / 7 , originalHeight / 10 );
 		bustButton = new Rect ((originalWidth / 2 - originalWidth / 20) , 10 ,originalWidth / 10 , originalHeight / 10  );
-		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 5 , originalHeight / 10 );
+		flyButton = new Rect (10 , (originalHeight - 50) , originalWidth / 7 , originalHeight / 10 );
 		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200 );
 		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
 		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
@@ -90,7 +90,7 @@ public class UI : MonoBehaviour
 
 		GUI.TextArea (new Rect (planetInfo), 
 		    " Назва планети: " + Name +
-			"\n Вага планети: " + PlanetWeight +
+			"\n Маса планети (ЗетаТони): " + PlanetWeight +
 			"\n Діаметр: " + Diameter + 
 			"\n Період обертання навколо сонця: " + RotationPeriod + 
 		    "\n Період обертання навколо совєї осі: " + SelfRotPeriod +
@@ -103,7 +103,7 @@ public class UI : MonoBehaviour
 		GUI.TextArea (new Rect(sheepInfo),
 		              " Швидкість корабля (км/сек): " + ship.GetComponent<SpaceShipPhysics>().UICurrentSpeed + 
 		              "\n Пройдений шлях (а.о.): " + ship.GetComponent<SpaceShipPhysics>().UIPathLength + 
-		              "\n Час польоту (дні): " + ship.GetComponent<SpaceShipPhysics>().UIFlyTimeCon);
+		              "\n " + ship.GetComponent<SpaceShipPhysics>().UIFlyTimeCon);
 
 		if (GUI.Button (new Rect (flyButton), "Вилетіти")) {
 			shipPhys.SdLaunched = true;
