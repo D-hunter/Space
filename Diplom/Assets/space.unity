@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -3.1400001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -299,6 +299,7 @@ Transform:
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 2076090794}
+  - {fileID: 310599607}
   m_Father: {fileID: 0}
 --- !u!114 &248630833
 MonoBehaviour:
@@ -312,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 0
-  Attenuation: 9.99999975e-06
+  Attenuation: .00100000005
   StartAngle: 0
   DeltaTime: .0199999996
   RadiusVector: {x: 0, y: 0, z: 0}
@@ -338,6 +339,81 @@ MonoBehaviour:
   SdLaunched: 0
   SdArrived: 0
   SdOnRbit: 0
+--- !u!1 &310599605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 310599607}
+  - 120: {fileID: 310599608}
+  - 114: {fileID: 310599606}
+  m_Layer: 0
+  m_Name: Trajectory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &310599606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310599605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1cb46a8f937d69449820bdb5c80f06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointslist: []
+  countofpoints: 0
+--- !u!4 &310599607
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310599605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -66.4486465, y: 12.6083145, z: 30.7187519}
+  m_LocalScale: {x: 3.33333325, y: 3.33333325, z: 3.33333325}
+  m_Children: []
+  m_Father: {fileID: 248630832}
+--- !u!120 &310599608
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310599605}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: f24fced004bc7f14b964e124ba10473e, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortingLayerID: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    startWidth: 1
+    endWidth: 1
+    m_StartColor:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_EndColor:
+      serializedVersion: 2
+      rgba: 4294967295
+  m_UseWorldSpace: 1
 --- !u!1 &352973533
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -4
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -772,6 +848,10 @@ Prefab:
       propertyPath: UIPlanetWeight
       value: 1876.64294
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -.421000004
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 850201691}
@@ -810,7 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.421000004
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1028,6 +1108,10 @@ Prefab:
       propertyPath: UIPlanetWeight
       value: 86.0543976
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1066707685}
@@ -1163,6 +1247,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 5.97599983
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -.56400001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
@@ -1317,6 +1405,10 @@ Prefab:
       propertyPath: UIPlanetWeight
       value: 101.592003
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 589298952}
@@ -1355,7 +1447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.56400001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1460,7 +1552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -1.27999997
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1565,7 +1657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -6
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -1786,6 +1878,10 @@ Prefab:
       propertyPath: UISunRotationPeriod
       value: 87.9700012
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1355091052}
@@ -1824,7 +1920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -5
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -2041,6 +2137,10 @@ Prefab:
       propertyPath: UIPlanetWeight
       value: 561.804016
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -1.27999997
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 1031927679}
@@ -2079,7 +2179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wheight: 0
   Radius: 0
-  StartAngle: 0
+  StartAngle: -.100000001
   RadiusVect: {x: 0, y: 0, z: 0}
   RotCenterOffset: {x: 0, y: 0, z: 0}
   declX: 0
@@ -2385,6 +2485,10 @@ Prefab:
       propertyPath: UIPlanetWeight
       value: .633449972
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -3.1400001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}
   m_RootGameObject: {fileID: 204964787}
@@ -2526,6 +2630,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
       propertyPath: UIPlanetWeight
       value: 4.81067991
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 1751f3281b19218469b597e800cace56, type: 2}
+      propertyPath: StartAngle
+      value: -.100000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1751f3281b19218469b597e800cace56, type: 2}

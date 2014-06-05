@@ -30,6 +30,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	private float TS = 86400;
 	private float EnginePath = 0f;
 	private GameObject ShipLight;
+	private GameObject trajectory;
 
 	//***************************************
 	//Variables for SpaceShip UI*************
@@ -61,6 +62,7 @@ public class SpaceShipPhysics : MonoBehaviour
 	// Use this for initialization***********
 	void Start ()
 	{
+		trajectory = GameObject.Find ("Trajectory");
 		//************************************************
 		//Planet objects initialization*******************
 		StarDestroyer = GameObject.Find ("StarDestroyer");
@@ -111,6 +113,7 @@ public class SpaceShipPhysics : MonoBehaviour
 		}
 		else {
 			if (!SdArrived) {
+				//TrajectoryDraw();
 				Vector3 MoveToGravity = new Vector3 ();
 				for (int i = 0; i < 9; i++)
 					MoveToGravity += GetPower (Planets [i], StarDestroyer, i);
@@ -170,10 +173,10 @@ public class SpaceShipPhysics : MonoBehaviour
 	{
 		if (!SdArrived) {
 			MoveGravitySun = GetPower (Planets [0], StarDestroyer, 0).normalized;
-			if (UnproResizeSum (VectDif (DestPlanet.transform.position, StarDestroyer.transform.position), StarDestroyer.transform.position).magnitude > StarDestroyer.transform.position.magnitude)
+			//if (UnproResizeSum (VectDif (DestPlanet.transform.position, StarDestroyer.transform.position), StarDestroyer.transform.position).magnitude > StarDestroyer.transform.position.magnitude)
 				ShipAccelerationDir = VectDif (new Vector3 (), MoveGravitySun);
-			else
-				ShipAccelerationDir = MoveGravitySun;
+			//else
+		//		ShipAccelerationDir = MoveGravitySun;
 		}
 	}
 	void AddAccelerationToInnerPlanet(){
@@ -278,7 +281,25 @@ public class SpaceShipPhysics : MonoBehaviour
 			timevalue = 0;
 			FlyTime++;
 		}
-		UIFlyTimeCon = FlyTime.ToString ();
+		UIFlyTimeCon = "Днів у польоті: " + FlyTime.ToString ();
 	}
 	//*********************************************************************************
+	
+	public void FlyReset()
+	{
+		SdOnRbit = false;
+		SdLaunched = false;
+		SdArrived = false;
+
+		Acceleration = 0.3f;
+		UICurrentSpeed = 0;
+		UIEngineSpeed = 0;
+		UIFlyTimeCon = "";
+		UIPathLength = 0;
+		StartPlanet = Planets [3];
+		RadiusVector = UnproResizeSum (StartPlanet.transform.localScale, new Vector3 (0.3f, 0.3f, 0.3f));
+		trajectory.GetComponent<LineRenderer> ().SetVertexCount (0);
+		trajectory.GetComponent<Trajectory> ().countofpoints = 0;
+		trajectory.GetComponent<Trajectory> ().pointslist = new System.Collections.Generic.List<Vector3> ();
+	}
 }
