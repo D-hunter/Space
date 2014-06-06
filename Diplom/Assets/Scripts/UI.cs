@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
 	Rect sheepInfo;
 	Rect flyButton;
 	Rect endFlyMessage;
+	Rect ResetButton;
 
 	Rect[] PlanetsButtons = new Rect[9];
 
@@ -56,6 +57,7 @@ public class UI : MonoBehaviour
 		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200);
 		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
 		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
+		ResetButton = new Rect (originalWidth / 1.18f , (originalHeight - 50) , originalWidth / 7 , originalHeight / 10 );
 		InitializePlanetsButtonsRects();
 	}
 
@@ -71,6 +73,7 @@ public class UI : MonoBehaviour
 		planetInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , 10 , (originalWidth / 4) , 200 );
 		sheepInfo = new Rect ((originalWidth - (originalWidth / 4) - 10) , planetInfo.height + 50, (originalWidth / 4) , 100 );
 		endFlyMessage = new Rect ((originalWidth / 2 - originalWidth / 10) , (originalHeight / 1.1f - 50) , originalWidth / 5 , 100 );
+		ResetButton = new Rect (originalWidth / 1.18f , (originalHeight - 50) , originalWidth / 7 , originalHeight / 10 );
 		InitializePlanetsButtonsRects();
 		GetPlanetInfo ();
 	}
@@ -114,6 +117,11 @@ public class UI : MonoBehaviour
 
 		if (ship.GetComponent<SpaceShipPhysics> ().SdArrived) {
 			GUI.TextField (endFlyMessage, "Корабель прилетів до планети!", style);
+		}
+
+		if(GUI.Button(new Rect(ResetButton), "Початкова позиція"))
+		{
+			shipPhys.FlyReset();
 		}
 
 		PlanetButtonsController();
